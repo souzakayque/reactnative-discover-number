@@ -1,0 +1,7 @@
+instalar fontes:
+
+expo install expo-font
+
+https://github.com/GeekyAnts/NativeBase
+
+https://github.com/react-native-training/react-native-elements
