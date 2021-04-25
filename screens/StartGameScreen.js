@@ -54,7 +54,7 @@ const StartGameScreen = props => {
             <Card
                 style={styles.summaryContainer}>
 
-                <BodyText>You selected</BodyText>
+                <BodyText>Você escolheu</BodyText>
                 <NumberContainer>
                     {selectedNumber}
                 </NumberContainer>
