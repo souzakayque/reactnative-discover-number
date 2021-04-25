@@ -5,3 +5,6 @@ expo install expo-font
 https://github.com/GeekyAnts/NativeBase
 
 https://github.com/react-native-training/react-native-elements
+
+
+flex: 1 to scroll view components works properly in android.
