@@ -16,3 +16,5 @@ App.json: {
 
 - always use KeyboardAvoidingView inside of ScrollView
 
+- install 'expo install expo-screen-orientation' to lock orientation async landscape/portrait by user
+use import { ScreenOrientation } from 'expo'; or import * as ScreenOrientation from 'expo-screen-orientation;

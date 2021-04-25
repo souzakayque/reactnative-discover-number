@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TouchableNativeFeedback, Platform } from 'react-native';
 
 import Colors from '../constants/colors';
 
 const MainButton = props => {
+
     return (
         <TouchableOpacity
             activeOpacity={0.6}
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontFamily: 'open-sans',
         fontSize: 18
-    }
+    },
 });
 
 export default MainButton;

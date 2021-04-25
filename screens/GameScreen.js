@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, StyleSheet, Button, Alert, ScrollView, FlatList, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+// import { ScreenOrientation } from 'expo';
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 import NumberContainer from '../components/NumberContainer';
 import Card from '../components/Card';
@@ -8,6 +10,7 @@ import MainButton from '../components/MainButton';
 import BodyText from '../components/BodyText';
 
 import DefaultStyles from '../constants/default-styles';
+
 
 const generateRandomBetween = (min, max, exclude) => {
     min = Math.ceil(min);
@@ -29,6 +32,7 @@ const renderListItem = (listLength, itemData) => (
 );
 
 const GameScreen = props => {
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
 
     // start - update layout when orientation changes 
     const [availableDeviceWidth, setAvailableDeviceWidth] = useState(Dimensions.get('window').width);

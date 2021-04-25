@@ -11,10 +11,10 @@ import MainButton from '../components/MainButton';
 import Colors from '../constants/colors';
 
 const StartGameScreen = props => {
-    const [buttonWidth, setButtonWidth] = useState(Dimensions.get('window').width / 4);
+    const [buttonWidth, setButtonWidth] = useState(Dimensions.get('window').width / 3.25);
     useEffect(() => {
         const updateLayout = () => {
-            setButtonWidth(Dimensions.get('window').width / 4);
+            setButtonWidth(Dimensions.get('window').width / 3.25);
         }
 
         Dimensions.addEventListener('change', updateLayout);
