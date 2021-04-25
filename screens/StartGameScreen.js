@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Button, TouchableWithoutFeedback, Keyboard, Alert, Dimensions, ScrollView, KeyboardAvoidingView } from 'react-native';
 
 import Card from '../components/Card';
@@ -11,6 +11,17 @@ import MainButton from '../components/MainButton';
 import Colors from '../constants/colors';
 
 const StartGameScreen = props => {
+    const [buttonWidth, setButtonWidth] = useState(Dimensions.get('window').width / 4);
+    useEffect(() => {
+        const updateLayout = () => {
+            setButtonWidth(Dimensions.get('window').width / 4);
+        }
+
+        Dimensions.addEventListener('change', updateLayout);
+        return () => {
+            Dimensions.removeEventListener('change', updateLayout);
+        };
+    });
 
     const [enteredValue, setEnteredValue] = useState('');
     const [confirmed, setConfirmed] = useState(false);
@@ -107,7 +118,7 @@ const StartGameScreen = props => {
                                 style={styles.buttonContainer}>
 
                                 <View
-                                    style={styles.button}>
+                                    style={{ width: buttonWidth }}>
                                     <Button
                                         title="REINICIAR"
                                         onPress={resetInputHandler}
@@ -115,7 +126,7 @@ const StartGameScreen = props => {
                                 </View>
 
                                 <View
-                                    style={styles.button}>
+                                    style={{ width: buttonWidth }}>
                                     <Button
                                         title="CONFIRMAR"
                                         onPress={confirmInputHandler}
@@ -161,10 +172,10 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingHorizontal: 15,
     },
-    button: {
-        // width: '45%',
-        width: Dimensions.get('window').width / 3,
-    },
+    // button: {
+    //     // width: '45%',
+    //     width: Dimensions.get('window').width / 3,
+    // },
     input: {
         width: 50,
         textAlign: 'center'
