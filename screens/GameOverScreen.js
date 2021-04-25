@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, Image } from 'react-native';
+import { View, Text, Button, StyleSheet, Image, Dimensions, ScrollView } from 'react-native';
 
 import BodyText from '../components/BodyText';
 import TitleText from '../components/TitleText';
@@ -8,42 +8,45 @@ import Colors from '../constants/colors';
 
 const GameOverScreen = props => {
     return (
-        <View
-            style={styles.screen}>
-            <TitleText>
-                O jogo acabou!
-            </TitleText>
-            <View style={styles.imageContainer}>
-                <Image
-                    fadeDuration={1000}
-                    // source={require('../assets/success.png')}
-                    source={{ uri: 'https://image.freepik.com/free-vector/you-win-neon-text-sign_118419-1005.jpg' }}
-                    style={styles.image}
-                    resizeMode="cover" />
-            </View>
+        <ScrollView>
 
-            <View style={styles.resultContainer}>
-                <BodyText
-                    style={styles.resultText}>
-                    O robô precisou de{' '}
-                    <Text
-                        style={styles.highlight}>
-                        {props.roundsNumber}
-                    </Text>
-                    {' '}tentativas para descobrir o número{' '}
-                    <Text
-                        style={styles.highlight}>
-                        {props.userNumber}.
-                    </Text>
-                </BodyText>
-            </View>
+            <View
+                style={styles.screen}>
+                <TitleText>
+                    O jogo acabou!
+                </TitleText>
+                <View style={styles.imageContainer}>
+                    <Image
+                        fadeDuration={1000}
+                        // source={require('../assets/success.png')}
+                        source={{ uri: 'https://image.freepik.com/free-vector/you-win-neon-text-sign_118419-1005.jpg' }}
+                        style={styles.image}
+                        resizeMode="cover" />
+                </View>
 
-            <MainButton
-                onPress={props.onRestart}>
-                NOVO JOGO
+                <View style={styles.resultContainer}>
+                    <BodyText
+                        style={styles.resultText}>
+                        O robô precisou de{' '}
+                        <Text
+                            style={styles.highlight}>
+                            {props.roundsNumber}
+                        </Text>
+                        {' '}tentativas para descobrir o número{' '}
+                        <Text
+                            style={styles.highlight}>
+                            {props.userNumber}.
+                    </Text>
+                    </BodyText>
+                </View>
+
+                <MainButton
+                    onPress={props.onRestart}>
+                    NOVO JOGO
             </MainButton>
 
-        </View>
+            </View>
+        </ScrollView>
     );
 };
 
@@ -54,13 +57,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     imageContainer: {
-        width: 300,
-        height: 300,
-        borderRadius: 200,
+        width: Dimensions.get('window').width * 0.7,
+        height: Dimensions.get('window').width * 0.7,
+        borderRadius: Dimensions.get('window').width * 0.7 / 2,
         borderWidth: 3,
         borderColor: 'black',
         overflow: 'hidden',
-        marginVertical: 30,
+        marginVertical: Dimensions.get('window').height / 30,
     },
     image: {
         width: '100%',
@@ -68,11 +71,11 @@ const styles = StyleSheet.create({
     },
     resultContainer: {
         marginHorizontal: 30,
-        marginVertical: 15
+        marginVertical: Dimensions.get('window').height / 60
     },
     resultText: {
         textAlign: 'center',
-        fontSize: 20,
+        fontSize: Dimensions.get('window').height < 490 ? 10 : 20,
     },
     highlight: {
         color: Colors.primary,

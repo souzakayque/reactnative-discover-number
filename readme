@@ -1,10 +1,18 @@
-instalar fontes:
-
+- run the command below to install the expo fonts package dependency:
 expo install expo-font
 
+- nice to read: library to check the react native elements
 https://github.com/GeekyAnts/NativeBase
-
 https://github.com/react-native-training/react-native-elements
 
+- use 'flex: 1' style to scroll view components works properly in android.
 
-flex: 1 to scroll view components works properly in android.
+- use the key-value below to configure the app's orientation.
+App.json: {
+    "orientation": "default",
+    "orientation": "portrait",
+    "orientation": "landscape",
+}
+
+- always use KeyboardAvoidingView inside of ScrollView
+
