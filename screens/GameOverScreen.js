@@ -28,7 +28,7 @@ const GameOverScreen = props => {
                     style={styles.screen}>
                     <TitleText>
                         O jogo acabou!
-                </TitleText>
+                        </TitleText>
                     <View style={styles.imageContainerBig}>
                         <Image
                             fadeDuration={1000}
@@ -50,7 +50,7 @@ const GameOverScreen = props => {
                             <Text
                                 style={styles.highlight}>
                                 {props.userNumber}.
-                    </Text>
+                                </Text>
                         </BodyText>
                     </View>
 
